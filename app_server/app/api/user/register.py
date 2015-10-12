@@ -10,7 +10,7 @@ import datetime
 class Register(APIView):
     @csrf_exempt
     def post(self, request, format=None):
-        serializer = RegisterSerializer(data=request.DATA)
+        serializer = RegisterSerializer(data=request.data)
         if serializer.is_valid():
             try:
                 user = AppUser.objects.get(email=serializer.data['email'])
@@ -20,14 +20,14 @@ class Register(APIView):
                 password = serializer.data['password']
                 email = serializer.data['email']
                 username = "test_user"
-                admin_user = User.objects.create_user(username=username, password=password,
-                                                      last_login=datetime.datetime.now(), email=email)
-                admin_user.save()
-                user = AppUser()
-                user.username = username
-                user.password = password
-                user.user = admin_user
-                user.email = email
-                user.save()
+                # admin_user = User.objects.create_user(username=username, password=password,
+                #                                       last_login=datetime.datetime.now(), email=email)
+                # admin_user.save()
+                # user = AppUser()
+                # user.username = username
+                # user.password = password
+                # user.user = admin_user
+                # user.email = email
+                # user.save()
                 return Response(status=status.HTTP_201_CREATED)
         return Response({"status": "format error"}, status=status.HTTP_400_BAD_REQUEST)
