@@ -94,7 +94,7 @@ DATABASES = {
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'Asia/SHanghai'
+TIME_ZONE = 'Asia/Shanghai'
 
 USE_I18N = True
 
