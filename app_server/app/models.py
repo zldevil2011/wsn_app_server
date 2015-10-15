@@ -14,18 +14,30 @@ class AppUser(models.Model):
 
 
 class Air(models.Model):
-    air_id = models.IntegerField()
-    pm25 = models.FloatField()
-    cloud = models.FloatField()
-    rain = models.FloatField()
-    ziwai = models.FloatField()
-    guang = models.FloatField()
+    air_id = models.AutoField(primary_key=True)
+    pm25 = models.FloatField(default=0)
+    cloud = models.FloatField(default=0)
+    rain = models.FloatField(default=0)
+    ziwai = models.FloatField(default=0)
+    guang = models.FloatField(default=0)
     clouddir = models.CharField(max_length=200)
     time = models.DateTimeField()
 
     def __unicode__(self):
         return str(self.air_id)
 
+
+class Water(models.Model):
+    water_id = models.AutoField(primary_key=True)
+    ph = models.FloatField(default=0)
+    do = models.FloatField(default=0)
+    turbidity = models.FloatField(default=0)
+    water_level = models.FloatField(default=0)
+    conductivity = models.FloatField(default=0)
+    time = models.DateTimeField(auto_now_add=True)
+
+    def __unicode__(self):
+        return str(self.water_id)
 
 class News(models.Model):
     news_id = models.AutoField(primary_key=True)

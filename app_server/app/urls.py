@@ -17,7 +17,9 @@ from django.conf.urls import include, url, patterns
 from django.contrib import admin
 from django.views.decorators.csrf import csrf_exempt
 from api.user.register import Register
+from api.data.water import WaterMethod
 
 urlpatterns = patterns('',
                        url(r'^user/register', csrf_exempt(Register.as_view())),
+                       url(r'^data/water/', (WaterMethod.as_view())),
                        )

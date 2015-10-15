@@ -10,6 +10,7 @@ import datetime
 import random
 seed = 'AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789_-'
 
+
 class Register(APIView):
     @csrf_exempt
     def post(self, request, format=None):
