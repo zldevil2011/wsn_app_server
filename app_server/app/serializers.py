@@ -19,3 +19,9 @@ class WaterSerializer(serializers.ModelSerializer):
     class Meta:
         model = Water
         fields = ('water_id', 'ph', 'do', 'turbidity', 'water_level', 'conductivity', 'time')
+
+
+class AirSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Air
+        fields = ('air_id', 'pm25', 'cloud', 'rain', 'ziwai', 'guang', 'clouddir', 'time')

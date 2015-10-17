@@ -18,8 +18,10 @@ from django.contrib import admin
 from django.views.decorators.csrf import csrf_exempt
 from api.user.register import Register
 from api.data.water import WaterMethod
+from api.data.air import AirMethod
 
 urlpatterns = patterns('',
                        url(r'^user/register', csrf_exempt(Register.as_view())),
                        url(r'^data/water/', (WaterMethod.as_view())),
+                       url(r'^data/air/', (AirMethod.as_view())),
                        )
