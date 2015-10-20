@@ -39,6 +39,20 @@ class Water(models.Model):
     def __unicode__(self):
         return str(self.water_id)
 
+
+class Weather(models.Model):
+    weather_id = models.AutoField(primary_key=True)
+    tem = models.FloatField(default=0.0)
+    wea = models.CharField(max_length=200)
+    humidity = models.FloatField(default=0.0)
+    cloud_speed = models.FloatField(default=0.0)
+    week = models.CharField(max_length=200)
+    lunnar = models.CharField(max_length=200)
+    time = models.DateField(null=True)
+
+    def __unicode__(self):
+        return str(self.weather_id)
+
 class News(models.Model):
     news_id = models.AutoField(primary_key=True)
     news_title = models.CharField(max_length=200)

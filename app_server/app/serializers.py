@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from app.models import AppUser, News, Air, Water
+from app.models import AppUser, News, Air, Water, Weather
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -25,3 +25,9 @@ class AirSerializer(serializers.ModelSerializer):
     class Meta:
         model = Air
         fields = ('air_id', 'pm25', 'cloud', 'rain', 'ziwai', 'guang', 'clouddir', 'time')
+
+
+class WeatherSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Weather
+        fields = ('weather_id', 'tem', 'wea', 'humidity', 'cloud_speed', 'week', 'lunnar', 'time')

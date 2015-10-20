@@ -19,10 +19,12 @@ from django.views.decorators.csrf import csrf_exempt
 from api.user.register import Register
 from api.data.water import WaterMethod
 from api.data.air import AirMethod
+from api.data.weather import WeatherMethod
 from views import about_us
 urlpatterns = patterns('',
                        url(r'^about_us', about_us, name="about_us"),
                        url(r'^user/register', csrf_exempt(Register.as_view())),
                        url(r'^data/water/', (WaterMethod.as_view())),
                        url(r'^data/air/', (AirMethod.as_view())),
+                       url(r'^data/weather/', (WeatherMethod.as_view())),
                        )
