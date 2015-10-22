@@ -1,3 +1,4 @@
+# -*- coding:utf-8 -*-
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -53,6 +54,7 @@ class Weather(models.Model):
     def __unicode__(self):
         return str(self.weather_id)
 
+
 class News(models.Model):
     news_id = models.AutoField(primary_key=True)
     news_title = models.CharField(max_length=200)
@@ -66,4 +68,15 @@ class News(models.Model):
     def __unicode__(self):
         return str(self.news_id)
 
+
+class Device(models.Model):
+    device_id = models.AutoField(primary_key=True)
+    device_name = models.CharField(max_length=200, null=True, default="设备名称")
+    device_maker = models.CharField(max_length=200, null=True, default="设备制造商")
+    device_price = models.FloatField(default=0)
+    device_photo = models.URLField(null=True, default="http://120.27.35.194:8080/camera.png")
+    device_desc = models.CharField(max_length=10000, null=True, default="设备详情描述")
+
+    def __unicode__(self):
+        return str(self.device_id)
 # Create your models here.
