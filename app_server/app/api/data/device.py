@@ -15,4 +15,8 @@ class DeviceMethod(APIView):
     def get(self, request):
         device = Device.objects.all()
         serializer = DeviceSerializer(device, many=True)
-        return Response({"device": serializer.data}, status=status.HTTP_200_OK)
+
+        return Response({
+            "device": serializer.data,
+            "count": device.count()
+        }, status=status.HTTP_200_OK)
